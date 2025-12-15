@@ -16,12 +16,17 @@ function getTotal()
 {
     if(price.value != '')
     {
-        let result = (+price.value + +taxes.value + +ads.value) - +discount.value;
-        total.innerHTML = result;
+        let p = parseFloat(price.value) || 0;
+        let t = parseFloat(taxes.value) || 0;
+        let a = parseFloat(ads.value) || 0;
+        let d = parseFloat(discount.value) || 0;
+        
+        let result = (p + t + a) - d;
+        total.innerHTML = result.toFixed(2); 
         total.style.backgroundColor = '#0ea010';
     }else{
-        total.innerHTML = '';
-        total.style.backgroundColor = '#ff1100';
+        total.innerHTML = 'N/A'; 
+        total.style.backgroundColor = '#ff1100'; 
     }
 };
 
@@ -35,6 +40,19 @@ if(localStorage.product != null){
 };
 
 submit.onclick = function(){
+    const priceValue = parseFloat(price.value);
+    if (priceValue < 0) {
+
+        total.innerHTML = 'Invalid Price'; 
+        total.style.backgroundColor = '#ff1100'; 
+        
+        return; 
+    }
+
+    if (price.value !== '') {
+        getTotal(); 
+    }
+    
     let newProduct = {
         title: title.value.toLowerCase(),
         price: price.value,
@@ -64,7 +82,7 @@ submit.onclick = function(){
         }else{
             dataProduct[ tmp ] = newProduct;
             mood = 'create';
-            submit.innerHTML = 'create';
+            submit.innerHTML = 'Create';
             count.style.display = 'block';
         }
         clearData();
@@ -223,4 +241,5 @@ function searchData(value){
     }    
     document.getElementById('tbody').innerHTML = table;
 }
+
 
