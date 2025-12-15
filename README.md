@@ -59,4 +59,4 @@ Contributions are welcome! If you have suggestions or bug fixes:
 5.  Open a Pull Request.
 
 ---
-*Developed by doublex03.*
+*Developed by MOHAMED BOUFRIOUA.*
