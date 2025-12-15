@@ -47,6 +47,12 @@ input:focus {
     -o-transform: scale(1.02);
 }
 
+.prices {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+
 .prices input {
     width: 20%;
 }
@@ -61,6 +67,7 @@ input:focus {
     -moz-border-radius: 6px;
     -ms-border-radius: 6px;
     -o-border-radius: 6px;
+    white-space: nowrap; 
 }
 
 #total::before {
@@ -107,7 +114,7 @@ button:hover {
 .btnsearch {
     display: flex;
     justify-content: space-between;
-    
+    gap: 10px;
 }
 
 .btnsearch button {
@@ -118,6 +125,7 @@ table {
     width: 100%;
     text-align: center;
     margin: 10px 0;
+    border-collapse: collapse; 
 }
 
 table th {
@@ -126,6 +134,7 @@ table th {
 
 th, td {
     padding: 5px;
+    border: 1px solid #ccc; 
 }
 
 #update, #delete {
@@ -142,26 +151,56 @@ th, td {
     -o-transform: none;
 }
 
-/* Media Queries and Responsive Design Standards */
 
-/* Mobile (up to 767px) */
+
+
 @media screen and (max-width: 767px) {
-    /* styles for mobile */
-}
+    
+    .crud {
+        width: 95%; 
+        padding: 5px;
+    }
+    
 
-/* Small Screens (768px to 991px) */
-@media screen and (min-width: 768px) and (max-width: 991px) {
-    /* styles for small screens */
-}
+    .prices {
+        flex-direction: column; 
+        gap: 8px; 
+    }
 
-/* Medium Screens (992px to 1199px) */
-@media screen and (min-width: 992px) and (max-width: 1199px) {
-    /* styles for medium screens */
-}
 
-/* Large Screens (1200px and up) */
-@media screen and (min-width: 1200px) {
-    /* styles for large screens */
+    .prices input {
+        width: 100%;
+        margin: 0; 
+    }
+
+    #total {
+        width: 100%;
+        text-align: center;
+        margin-top: 5px;
+    }
+
+    .btnsearch {
+        flex-direction: column;
+        gap: 8px;
+    }
+    .btnsearch button {
+        width: 100%; 
+    }
+
+    .outputs {
+        overflow-x: auto; 
+    }
+
+    table {
+        min-width: 600px; 
+        font-size: 12px;
+    }
+    
+
+    #update, #delete {
+        padding: 5px 8px;
+        font-size: 12px;
+    }
 }
 
 
